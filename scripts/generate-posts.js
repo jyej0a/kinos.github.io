@@ -1,11 +1,11 @@
 /**
  * posts.json 자동 생성 스크립트
  * pages/ 폴더의 마크다운 파일들을 스캔하여 posts.json 생성
+ * gray-matter 없이 순수 JavaScript로 Front Matter 파싱
  */
 
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter');
 
 const PAGES_DIR = path.join(__dirname, '../pages');
 const OUTPUT_FILE = path.join(__dirname, '../posts.json');
@@ -14,9 +14,40 @@ function getSlugFromFilename(filename) {
     return filename.replace('.md', '');
 }
 
+// Front Matter 파싱 함수 (gray-matter 없이)
+function parseFrontMatter(content) {
+    const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+    const match = content.match(frontMatterRegex);
+
+    if (!match) {
+        return { data: {}, content: content.trim() };
+    }
+
+    const metadataText = match[1];
+    const metadata = {};
+    const lines = metadataText.split('\n');
+
+    lines.forEach(line => {
+        const match = line.match(/^(\w+):\s*(.+)$/);
+        if (match) {
+            let key = match[1];
+            let value = match[2].replace(/^['"]|['"]$/g, '');
+
+            // 배열 처리
+            if (value.startsWith('[') && value.endsWith(']')) {
+                value = value.replace(/[\[\]']/g, '').split(',').map(s => s.trim()).filter(Boolean);
+            }
+
+            metadata[key] = value;
+        }
+    });
+
+    return { data: metadata, content: match[2].trim() };
+}
+
 function extractFrontMatter(filePath) {
     const fileContent = fs.readFileSync(filePath, 'utf-8');
-    const { data, content } = matter(fileContent);
+    const { data } = parseFrontMatter(fileContent);
 
     return {
         title: data.title || 'Untitled',

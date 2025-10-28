@@ -15,6 +15,9 @@ Thumbs.db
 *.swp
 *.swo
 
+# Playwright
+.playwright-mcp/
+
 # Logs
 *.log
 
