@@ -5,6 +5,9 @@
     "scripts": {
         "generate-posts": "node scripts/generate-posts.js"
     },
+    "dependencies": {
+        "gray-matter": "^4.0.3"
+    },
     "keywords": [
         "blog",
         "github-pages",
