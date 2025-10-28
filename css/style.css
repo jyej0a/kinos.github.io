@@ -295,7 +295,7 @@ a:hover {
 .filter-item:hover,
 .filter-item.active {
     background-color: var(--accent-green);
-    color: var(--text-primary);
+    color: #fffff0;
 }
 
 .tag-cloud {
@@ -307,22 +307,25 @@ a:hover {
 .tag {
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    background-color: var(--secondary-bg);
+    background-color: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 1rem;
     font-size: 0.85rem;
     transition: var(--transition);
     cursor: pointer;
+    color: #000000;
 }
 
 .tag:hover {
     background-color: var(--accent-green);
     border-color: var(--accent-green);
+    color: #ffffff;
 }
 
 .tag.selected {
     background-color: var(--highlight-green);
     border-color: var(--highlight-green);
+    color: #ffffff;
 }
 
 /* ============================================
@@ -339,7 +342,7 @@ a:hover {
 }
 
 .post-card {
-    background-color: var(--secondary-bg);
+    background-color: #fffff0;
     border: 1px solid var(--border-color);
     border-radius: 0.75rem;
     padding: 2rem;
@@ -377,6 +380,7 @@ a:hover {
     border-radius: 0.25rem;
     font-size: 0.8rem;
     font-weight: 700;
+    color: #ffffff;
 }
 
 .post-card-description {
@@ -402,6 +406,7 @@ a:hover {
     border-radius: 0.5rem;
     font-weight: 700;
     transition: var(--transition);
+    color: #ffffff;
 }
 
 .read-more:hover {
@@ -453,6 +458,7 @@ a:hover {
     border-radius: 0.25rem;
     font-size: 0.85rem;
     font-weight: 700;
+    color: #ffffff;
 }
 
 .post-tags {
@@ -600,6 +606,7 @@ a:hover {
     border-radius: 0.5rem;
     font-weight: 700;
     transition: var(--transition);
+    color: #ffffff;
 }
 
 .nav-button:hover {
