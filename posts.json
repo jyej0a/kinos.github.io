@@ -1,0 +1,19 @@
+[
+  {
+    "title": "블로그 오픈!",
+    "date": "2025-10-28",
+    "tags": ["공지", "Welcome"],
+    "category": "Notice",
+    "description": "다크 그린 테마의 새로운 블로그를 시작합니다.",
+    "slug": "welcome"
+  },
+  {
+    "title": "나의 첫 번째 게시글",
+    "date": "2025-10-28",
+    "tags": ["일상", "시작"],
+    "category": "Daily",
+    "description": "블로그를 시작하며 첫 게시글을 작성해봅니다.",
+    "slug": "my-first-post"
+  }
+]
+
