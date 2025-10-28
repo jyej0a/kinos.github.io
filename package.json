@@ -1,0 +1,16 @@
+{
+    "name": "dark-green-blog",
+    "version": "1.0.0",
+    "description": "Dark Green themed static blog powered by GitHub Pages",
+    "scripts": {
+        "generate-posts": "node scripts/generate-posts.js"
+    },
+    "keywords": [
+        "blog",
+        "github-pages",
+        "static-site",
+        "dark-green"
+    ],
+    "author": "jyej0a",
+    "license": "MIT"
+}

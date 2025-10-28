@@ -1,0 +1,19 @@
+# Generated files (GitHub Actions가 자동 생성)
+posts.json
+
+# Node modules (만약 npm 스크립트 사용 시)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
