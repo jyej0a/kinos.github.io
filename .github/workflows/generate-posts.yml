@@ -1,9 +1,13 @@
-name: Generate Posts and Deploy
+name: Generate Posts
 
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+    paths:
+      - 'pages/**'
+
+permissions:
+  contents: read
 
 jobs:
   generate-posts:
@@ -26,11 +30,11 @@ jobs:
         run: |
           node scripts/generate-posts.js
       
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_branch: main
-          force_orphan: true
+      - name: Commit posts.json
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add posts.json
+          git diff --staged --quiet || git commit -m "chore: update posts.json"
+          git push
 
